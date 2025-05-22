@@ -1,0 +1,41 @@
+
+--- MLLF Simulation Trace (Hyperperiod: 10) ---
+Time | Event                                         | Run Job(L,Q)| Ready Queue (JobId:Laxity)
+-----|--------------------------------------------|--------------|--------------------------
+   0 | Arrival J0(T0) Arrival J1(T1) Start J1(L3,Q2)  |  J1  (L3,Q2)| J0:3 
+   1 | Continue J1(L3,Q1)                         |  J1  (L3,Q1)| J0:2 
+   2 | Complete J1 Start J0(L1,Q3) (CS)           |  J0  (L1,Q3)| 
+   3 | Continue J0(L1,Q2)                         |  J0  (L1,Q2)| 
+   4 | Continue J0(L1,Q1)                         |  J0  (L1,Q1)| 
+   5 | Complete J0 CPU Idle                       |  Idle         | 
+   6 | CPU Idle                                   |  Idle         | 
+   7 | CPU Idle                                   |  Idle         | 
+   8 | CPU Idle                                   |  Idle         | 
+   9 | CPU Idle                                   |  Idle         | 
+-----|--------------------------------------------|--------------|--------------------------
+
+--- Simulation Analysis ---
+Algorithm: MLLF
+Total time simulated: 10
+Total CPU idle time: 5 (50.00%)
+Total jobs generated: 2
+Total jobs completed: 2
+Total deadline misses: 0
+Total context switches: 1
+
+
+--- Per-Job Analysis (Completed Jobs) ---
+JobID | Task(Inst) | Arriv | AET | WCET| Finish | Turnaround | Waiting | Response
+------|------------|-------|-----|-----|--------|------------|---------|----------
+J0    | T0(0 )    |     0 |   3 |   3 |      5 |          5 |       2 |        2
+J1    | T1(0 )    |     0 |   2 |   2 |      2 |          2 |       0 |        0
+
+--- Average Performance Metrics (for Completed Jobs) ---
+Average Turnaround Time: 3.50
+Average Waiting Time:    1.00
+Average Response Time:   1.00
+
+--- Response Time Jitter Analysis (for Completed Jobs) ---
+Task 0: Avg RT=2.00, Min RT=2, Max RT=2, Abs Jitter=0, Max Rel Jitter=0 (1 samples)
+Task 1: Avg RT=0.00, Min RT=0, Max RT=0, Abs Jitter=0, Max Rel Jitter=0 (1 samples)
+--------------------------------------------------------
